@@ -108,7 +108,7 @@ export default function App() {
               <div className="flex justify-center gap-4 flex-wrap">
                 <button
                   onClick={() => setResponse(true)}
-                  className="bg-green-500 hover:bg-green-600 text-white text-3xl px-8 py-4 rounded-full transition-all transform hover:scale-110"
+                  className="bg-green-500 hover:bg-green-600 text-white text-lg px-4 py-2 rounded-full"
                 >
                   YES! 🥰
                 </button>

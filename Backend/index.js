@@ -15,9 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // CORS configuration
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production' 
-        ? 'https://val-edpb.onrender.com/' 
-        : 'http://localhost:5173',
+    origin: 'http://localhost:5173',
     credentials: true
 }));
 
