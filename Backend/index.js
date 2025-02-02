@@ -2,12 +2,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from "path";
 
 dotenv.config();
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(cors({origin: "http://localhost:5173",credentials: true}));
+const __dirname = path.resolve();
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -39,7 +42,14 @@ app.post('/submit', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname,'../Frontend/dist')));
+    app.get('*',(req,res) => {
+        res.sendFile(path.join(__dirname,"../Frontend","dist","index.html"));
+    })
+}
+
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

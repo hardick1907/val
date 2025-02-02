@@ -4,6 +4,7 @@ import batman from './assets/batman.jpg';
 import { Toaster, toast } from 'react-hot-toast';
 import { Heart, Stars, PartyPopper, Calendar, Coffee } from 'lucide-react';
 import NoButton from './Nobutton';
+import axiosInstance from './lib/axios';
 
 export default function App() {
   const [response, setResponse] = useState(null);
@@ -29,22 +30,17 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { flower, date } = form;
-
+  
     if (!flower || !date) {
       toast.error("Please fill in both fields! 😅");
       return;
     }
-
+  
     setLoading(true);
-    fetch('http://localhost:3000/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ flower, date }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
+    
+    axiosInstance
+      .post('/submit', { flower, date })
+      .then((response) => {
         setSubmitted(true);
       })
       .catch((error) => {
@@ -54,6 +50,7 @@ export default function App() {
         setLoading(false);
       });
   };
+  
 
   if (submitted) {
     return (

@@ -1,0 +1,22 @@
+{
+  "name": "askherout",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd Frontend && npm install && npm run build && cd ../Backend && npm install",
+    "start": "cd Backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardick1907/val.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hardick1907/val/issues"
+  },
+  "homepage": "https://github.com/hardick1907/val#readme",
+  "description": ""
+}
