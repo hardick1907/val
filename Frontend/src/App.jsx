@@ -4,7 +4,7 @@ import batman from './assets/batman.jpg';
 import { Toaster, toast } from 'react-hot-toast';
 import { Heart, Stars, PartyPopper, Calendar, Coffee } from 'lucide-react';
 import NoButton from './Nobutton';
-import axiosInstance from './lib/axios';
+import {axiosInstance} from './lib/axios';
 
 export default function App() {
   const [response, setResponse] = useState(null);
