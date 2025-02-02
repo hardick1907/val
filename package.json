@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cd Frontend && npm install && npm run build && cd ../Backend && npm install",
+    "build": "cd Frontend && npm install --production=false && npm run build && cd ../Backend && npm install",
     "start": "cd Backend && npm start"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hardick1907/val.git"
